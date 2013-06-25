@@ -6,6 +6,8 @@ archive_dir='.old'
 # Stop on error
 set -e
 
+cd "`dirname \"$0\"`"
+
 function archive {
         mkdir -p $archive_dir
         for p in `ls *.rpm | sed 's/[0-9]*\.[0-9]*\-[0-9]*\.noarch\.rpm//' | sort | uniq`
